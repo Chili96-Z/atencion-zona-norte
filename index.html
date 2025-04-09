@@ -4,10 +4,39 @@
   <meta charset="UTF-8">
   <title>Atención Zona Norte</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 20px;
+    }
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      background-color: #f9f9f9;
+      margin-right: 5px;
+    }
+    .tab.active {
+      background-color: white;
+      border-top: 2px solid #007BFF;
+      border-left: 2px solid #007BFF;
+      border-right: 2px solid #007BFF;
+      font-weight: bold;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
     table {
       border-collapse: collapse;
       width: 100%;
-      margin-bottom: 20px;
     }
     th, td {
       border: 1px solid #ccc;
@@ -17,50 +46,67 @@
     th {
       background-color: #f2f2f2;
     }
-    h2 {
-      margin-top: 40px;
-    }
   </style>
 </head>
 <body>
   <h1>Atención Zona Norte</h1>
 
-  <h2>Disponibles</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Teléfono</th>
-        <th>Observación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Juan Pérez</td><td>juan@mail.com</td><td>123456789</td><td>Disponible martes</td></tr>
-      <tr><td>María López</td><td>maria@mail.com</td><td>987654321</td><td>Disponible jueves</td></tr>
-      <tr><td>Carlos Díaz</td><td>carlos@mail.com</td><td>456123789</td><td>Disponible lunes</td></tr>
-      <tr><td>Ana Torres</td><td>ana@mail.com</td><td>321654987</td><td>Disponible viernes</td></tr>
-      <tr><td>Luis Gómez</td><td>luis@mail.com</td><td>159753468</td><td>Disponible miércoles</td></tr>
-    </tbody>
-  </table>
+  <div class="tabs">
+    <div class="tab active" onclick="mostrarTab('disponibles')">Disponibles</div>
+    <div class="tab" onclick="mostrarTab('personal6am')">Personal 6 AM</div>
+  </div>
 
-  <h2>Personal 6 AM</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Teléfono</th>
-        <th>Observación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Laura Medina</td><td>laura@mail.com</td><td>741852963</td><td>Llega temprano</td></tr>
-      <tr><td>Pedro Ríos</td><td>pedro@mail.com</td><td>852963741</td><td>Turno fijo</td></tr>
-      <tr><td>Sofía Núñez</td><td>sofia@mail.com</td><td>963741852</td><td>Requiere transporte</td></tr>
-      <tr><td>Diego Castro</td><td>diego@mail.com</td><td>147258369</td><td>Reemplazo</td></tr>
-      <tr><td>Claudia Reyes</td><td>claudia@mail.com</td><td>369258147</td><td>Vacaciones pronto</td></tr>
-    </tbody>
-  </table>
+  <div id="disponibles" class="tab-content active">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Observación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Juan Pérez</td><td>juan@mail.com</td><td>123456789</td><td>Disponible martes</td></tr>
+        <tr><td>María López</td><td>maria@mail.com</td><td>987654321</td><td>Disponible jueves</td></tr>
+        <tr><td>Carlos Díaz</td><td>carlos@mail.com</td><td>456123789</td><td>Disponible lunes</td></tr>
+        <tr><td>Ana Torres</td><td>ana@mail.com</td><td>321654987</td><td>Disponible viernes</td></tr>
+        <tr><td>Luis Gómez</td><td>luis@mail.com</td><td>159753468</td><td>Disponible miércoles</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="personal6am" class="tab-content">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>Observación</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Laura Medina</td><td>laura@mail.com</td><td>741852963</td><td>Llega temprano</td></tr>
+        <tr><td>Pedro Ríos</td><td>pedro@mail.com</td><td>852963741</td><td>Turno fijo</td></tr>
+        <tr><td>Sofía Núñez</td><td>sofia@mail.com</td><td>963741852</td><td>Requiere transporte</td></tr>
+        <tr><td>Diego Castro</td><td>diego@mail.com</td><td>147258369</td><td>Reemplazo</td></tr>
+        <tr><td>Claudia Reyes</td><td>claudia@mail.com</td><td>369258147</td><td>Vacaciones pronto</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function mostrarTab(id) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      document.querySelector(`.tab[onclick*='${id}']`).classList.add('active');
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
