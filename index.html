@@ -5,46 +5,66 @@
   <title>Atención Zona Norte</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 20px;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #004085;
     }
     .tabs {
       display: flex;
       border-bottom: 2px solid #ccc;
       margin-bottom: 20px;
+      justify-content: center;
     }
     .tab {
-      padding: 10px 20px;
+      padding: 12px 24px;
       cursor: pointer;
-      border: 1px solid #ccc;
-      border-bottom: none;
-      background-color: #f9f9f9;
+      background-color: #e2e6ea;
       margin-right: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      font-weight: 500;
     }
     .tab.active {
-      background-color: white;
-      border-top: 2px solid #007BFF;
-      border-left: 2px solid #007BFF;
-      border-right: 2px solid #007BFF;
-      font-weight: bold;
+      background-color: #ffffff;
+      border: 2px solid #007BFF;
+      border-bottom: none;
+      color: #007BFF;
     }
     .tab-content {
       display: none;
+      background-color: #ffffff;
+      padding: 20px;
+      border: 2px solid #007BFF;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
     .tab-content.active {
       display: block;
     }
     table {
-      border-collapse: collapse;
       width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
     }
     th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
+      padding: 12px;
       text-align: left;
+      border-bottom: 1px solid #dee2e6;
     }
     th {
-      background-color: #f2f2f2;
+      background-color: #007BFF;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    tr:hover {
+      background-color: #e9ecef;
     }
   </style>
 </head>
